@@ -2,6 +2,7 @@ import { Component, OnChanges, ViewChild, ElementRef, Input, SimpleChanges } fro
 import MarkerClusterer from '@google/markerclustererplus';
 
 
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -28,11 +29,173 @@ export class MapComponent implements OnChanges {
     if (changes.data.currentValue) {
       const days = this.data.days.map(day => day.experience_modules.filter(e => e.lat && e.lng)).filter(dayExp => dayExp.length);
       const coordinates = new google.maps.LatLng(this.lat, this.lng);
-      const mapOptions = {
+      const styledMapType = new google.maps.StyledMapType([
+        {
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#f5f5f5"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#616161"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.text.stroke",
+          "stylers": [
+            {
+              "color": "#f5f5f5"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.land_parcel",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#bdbdbd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#eeeeee"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#e5e5e5"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#9e9e9e"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#ffffff"
+            }
+          ]
+        },
+        {
+          "featureType": "road.arterial",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#dadada"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#616161"
+            }
+          ]
+        },
+        {
+          "featureType": "road.local",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#9e9e9e"
+            }
+          ]
+        },
+        {
+          "featureType": "transit.line",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#e5e5e5"
+            }
+          ]
+        },
+        {
+          "featureType": "transit.station",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#eeeeee"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#c9c9c9"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#9e9e9e"
+            }
+          ]
+        }
+      ]);
+      const mapOptions: MapOptions = {
         center: coordinates,
         zoom: 5,
+        styles: styledMapType,
       };
       this.map = new google.maps.Map(this.gmap.nativeElement, mapOptions);
+
 
       // Create markers
       const daysMarkers = days.map((experiences, i) => {
@@ -40,7 +203,6 @@ export class MapComponent implements OnChanges {
           return new google.maps.Marker({
             position: new google.maps.LatLng(Number(experience.lat), Number(experience.lng)),
             label: experience.title,
-            // map: this.map,
           });          
         });
       });
