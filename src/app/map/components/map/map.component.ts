@@ -10,7 +10,6 @@ import MarkerClusterer from '@google/markerclustererplus';
 })
 export class MapComponent implements OnChanges {
   map: google.maps.Map; 
-  mapOptions: google.maps.MapOptions;
   markers: google.maps.Marker[];
 
   @Input()
@@ -29,7 +28,7 @@ export class MapComponent implements OnChanges {
     if (changes.data.currentValue) {
       const days = this.data.days.map(day => day.experience_modules.filter(e => e.lat && e.lng)).filter(dayExp => dayExp.length);
       const coordinates = new google.maps.LatLng(this.lat, this.lng);
-      const styledMapType = new google.maps.StyledMapType([
+      const styledMapType = [
         {
           "elementType": "geometry",
           "stylers": [
@@ -188,8 +187,8 @@ export class MapComponent implements OnChanges {
             }
           ]
         }
-      ]);
-      const mapOptions: MapOptions = {
+      ];
+      const mapOptions: google.maps.MapOptions = {
         center: coordinates,
         zoom: 5,
         styles: styledMapType,
