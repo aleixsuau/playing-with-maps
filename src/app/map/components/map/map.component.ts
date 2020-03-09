@@ -19,7 +19,7 @@ export class MapComponent implements OnChanges {
   @Input()
   data: any;
 
-  @ViewChild('mapContainer', {static: false})
+  @ViewChild('mapContainer')
   gmap: ElementRef;
 
   constructor() { }
@@ -188,7 +188,7 @@ export class MapComponent implements OnChanges {
           ]
         }
       ];
-      const mapOptions: google.maps.MapOptions = {
+      const mapOptions = {
         center: coordinates,
         zoom: 5,
         styles: styledMapType,
