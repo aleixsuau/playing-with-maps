@@ -8,6 +8,8 @@
 .map {
   &__container {
     background-color: var(--lighter-grey);
+    max-width: 140rem;
+    margin: 0 auto;
   }
 
   &__location {

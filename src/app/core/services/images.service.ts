@@ -3,6 +3,13 @@ import { MediaObserver } from "@angular/flex-layout";
 import { map, take } from "rxjs/operators";
 import { of, Observable } from "rxjs";
 
+interface IImageSizes {
+  [key: string]: {
+    height: number,
+    width: number
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,7 +43,7 @@ export class ImagesService {
 		gt-md === 'screen and (min-width: 1280px)'
 		gt-lg === 'screen and (min-width: 1920px)'
 	*/
-  getImageUrl$(url: string, height: number, width: number, sizes?: IImageSizes): Observable<string>{
+  getImageUrl$(url: string, height: number, width: number, sizes?): Observable<string>{
 	if (!url) { return of(null); }
 
 	if (url.includes('https://res.cloudinary.com/thebellhop/image/upload/') || url.includes('http://res.cloudinary.com/thebellhop/image/upload/')) {

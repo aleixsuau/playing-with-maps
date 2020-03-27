@@ -24,10 +24,14 @@ body {
 }
 
 :root {
-  --border-grey: #d5d5d5;
-  --dark-grey: #9b9b9b;
-  --text-black: #4a4a4a;
-  --red: #d0021b;
+	--border-grey: #d5d5d5;
+  --light-grey: #d5d5d5;
+  --lighter-grey: #f3f2f2;
+	--dark-grey: #9b9b9b;
+	--text-black: #4a4a4a;
+	--red: #d0021b;
+  --link-blue: #39f;
+  --green: #7bc77b;
 }
 
 @font-face {

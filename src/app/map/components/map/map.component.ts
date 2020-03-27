@@ -2,6 +2,51 @@ import { ImagesService } from './../../../core/services/images.service';
 import { MapsService } from './../../services/maps/maps.service';
 import { Component, Input, OnChanges, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
 
+interface ILocation {
+  title: string;
+  lng: string;
+  lat: string;
+  id?: number;
+  city_id?: number;
+  city?: string;
+  subtype_slug?: string;
+  subtype?: string;
+  type?: string;
+  type_slug?: string;
+  image?: string;
+  description?: string;
+  address?: string;
+  zipcode?: string;
+  content_type?: string;
+  alias?: string;
+}
+
+interface IRelated {
+  name: string;
+  related_objects: ILocation[];
+}
+
+interface IMapMarker {
+  lng: string;
+  lat: string;
+  title: string;
+}
+
+interface IType {
+  title: string;
+  key: string;
+  markers: google.maps.Marker[];
+  locations: ILocation[];
+  infoWindows: any[];
+}
+
+interface IImageSizes {
+  [key: string]: {
+    height: number,
+    width: number
+  }
+}
+
 
 @Component({
   selector: 'ess-map',
