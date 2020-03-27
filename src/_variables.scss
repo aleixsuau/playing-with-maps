@@ -1,0 +1,16 @@
+$primary-font: "PlantinMTPro", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+$secondary-font: "UniversLTStd", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+$secondary-font-v1: "UniversLTStd-UltraCn", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+$secondary-font-v2: "UniversLTStd-ThinUltraCn", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+$pSize: 1.4rem;
+$pSizeBig: 2.4rem;
+
+@mixin logo {
+  font-family: EssenThiUltCn,Arial,sans-serif;
+  font-size: 4rem;
+  color: #666;
+  text-transform: none;
+  letter-spacing: -.1em;
+  margin-top: .5em;
+  display: inline-block;
+}

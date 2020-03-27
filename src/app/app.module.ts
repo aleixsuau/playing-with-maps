@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MapModule } from './map/map.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports:      [
@@ -12,6 +13,7 @@ import { MapModule } from './map/map.module';
     FormsModule,
     MapModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]

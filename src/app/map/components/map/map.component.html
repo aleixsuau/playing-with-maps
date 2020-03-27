@@ -1,1 +1,80 @@
-<div #mapContainer id="map"></div>
+<div class="map__container"
+     fxLayout.gt-sm="row"
+     fxLayoutGap="2rem"
+     [ngStyle]="{'height': height + 'px'}"
+     fxLayout.lt-md="column"
+     fxLayoutGap.lt-md="0rem"
+     [ngStyle.lt-md]="{'height': 'auto'}">
+  <div class="map__menu"
+       fxFlex.gt-sm="0 0 25rem"
+       fxFlex.lt-md="0 0 auto"
+       *ngIf="related && related.length">
+    <h4>ALONG THE WAY</h4>
+
+    <mat-form-field>
+      <mat-label>Filter by category</mat-label>
+
+      <mat-select (selectionChange)="filterTypesAndMarkers($event.value)">
+        <mat-option *ngFor="let type of typesSelectOptions"
+                    [value]="type.key">
+          {{type.title}}
+        </mat-option>
+
+        <mat-option>See All Categories</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="map__location_type_container"
+         fxLayout="column"
+         fxLayout.lt-md="row"
+         fxLayoutGap="1rem"
+         fxLayoutGap.lt-md="2rem">
+      <div class="map__location_type"
+          *ngFor="let type of typesList"
+          fxFlex="1 0 auto">
+        <h5 class="map__location_type_title"
+            [ngStyle.lt-md]="{'left': 0, 'display': 'inline-block', 'position': 'sticky'}">
+          {{type.title | uppercase}}
+        </h5>
+
+        <div class="map__location_container"
+            fxLayout.lt-md="row"
+            fxLayoutGap="0rem"
+            fxLayoutGap.lt-md="1rem">
+          <div class="map__location"
+              *ngFor="let location of type.locations; let index = index;"
+              (click)="focusMarker(type, index); markerActive = location.id;"
+              fxFlex.lt-md="1 1 25rem"
+              fxLayout
+              fxLayoutGap="1rem"
+              class="{{location.id}}"
+              [ngClass]="{'active': location.id === markerActive}"
+              [ngClass.lt-md]="{'active': location.id === markerActive, 'LTSM': true}">
+            <div class="map__location_picture"
+                 fxFlex="0 0 9rem">
+              <img [src]="getImageUrl$(location.image, 90, 90) | async"/>
+            </div>
+
+            <div class="map__location_details"
+                fxFlex="0 1 20rem">
+              <p>{{location.title}}</p>
+
+              <div fxLayout="row wrap">
+                <span>{{location.type}}&nbsp;</span>
+
+                <h5>{{location.subtype}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div #mapContainer
+       id="map"
+       fxFlex.gt-sm="1 1 auto"
+       [fxFlex.lt-md]="'1 1 ' + height + 'px'">
+  </div>
+</div>
+

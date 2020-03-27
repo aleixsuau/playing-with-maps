@@ -1,1 +1,88 @@
-/* Add application styles & imports to this file! */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+	color: --text-black;
+	background: #fff;
+	font: 14px/1.43 "PlantinMTPro", "Times New Roman", "Times", "Baskerville", "Georgia", serif;
+	min-width: 320px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --border-grey: #d5d5d5;
+  --dark-grey: #9b9b9b;
+  --text-black: #4a4a4a;
+  --red: #d0021b;
+}
+
+@font-face {
+	font-family: PlantinMTPro;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-LightItalic.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-LightItalic.woff2") format("woff2");
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: PlantinMTPro;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-Regular.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: PlantinMTPro;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-BoldItalic.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-BoldItalic.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: PlantinMTPro;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-BoldItalic.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/PlantinMTPro-BoldItalic.woff2") format("woff2");
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: UniversLTStd;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: UniversLTStd;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd-BoldCn.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd-BoldCn.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: UniversLTStd-ThinUltraCn;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd-ThinUltraCn.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd-ThinUltraCn.woff2") format("woff2");
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: UniversLTStd-UltraCn;
+	src: url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd-UltraCn.woff") format("woff"), url("https://backofficedev.essentialist.com/static/admin/fonts/UniversLTStd-UltraCn.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+
